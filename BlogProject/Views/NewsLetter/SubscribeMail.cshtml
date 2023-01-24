@@ -1,0 +1,33 @@
+﻿<div class="tech-btm">
+    <h4>Mail Bültenine Abone Olun</h4>
+    <p>Teknoloji, Yazılım ve Diğer Bloklar </p>
+    <input id="email" type="email" placeholder="Email" required="" name="Mail">
+    <input type="submit" value="Abone Ol" id="submit">
+    <p id="p"></p>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+    $("#submit").click(function () {
+        let NewsLetter = {
+            Mail: $("#email").val(),
+            Status: true
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/NewsLetter/postSubscribeMail/",
+            dataType: "json",
+            data: NewsLetter,
+            success: function (x) {
+                let result = jQuery.parseJSON(x);
+                swal("Abone Oldunuz!", `Mail: ${result.Mail} `, "success");
+            }
+        });
+    });
+});
+</script>
+
