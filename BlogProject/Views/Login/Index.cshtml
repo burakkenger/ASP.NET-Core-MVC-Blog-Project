@@ -8,17 +8,16 @@
         <h3 class="tittle">Oturum Aç</h3>
         <div class="row inner-sec">
             <div class="login p-5 bg-light mx-auto mw-100">
-                <form action="#" method="post">
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                {
                     <div class="form-group">
                         <label for="exampleInputEmail1 mb-2">Mail Adresiniz</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="" required="">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="" name="Mail">
                         <small id="emailHelp" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1 mb-2">Şifre</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder=""
-                            required="">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="" name="Password">
                     </div>
                     <div class="form-check mb-2">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -26,7 +25,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary submit mb-4">Giriş Yap</button>
                     <p><a href="register.html"> Hesabınız Yok mu ?</a></p>
-                </form>
+                }
             </div>
         </div>
     </div>

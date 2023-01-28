@@ -12,8 +12,9 @@ namespace DataAccesLayer.Abstract
         void Insert(T entity);
         void Delete(T entity);
         void Update(T entity);
-        ICollection<T> GetAll();
         T GetByID(int ID);
+        ICollection<T> GetAll();
         ICollection<T> GetAll(Expression<Func<T, bool>> predicate);
+        T Get(Expression<Func<T, bool>> predicate);
     }
 }

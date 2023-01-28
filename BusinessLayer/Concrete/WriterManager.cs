@@ -1,9 +1,11 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccesLayer.Abstract;
+using DataAccesLayer.Concrete;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,9 +19,15 @@ namespace BusinessLayer.Concrete
         {
             _writerDal = writerDal;
         }
+
         public void WriterAdd(Writer writer)
         {
             _writerDal.Insert(writer);
+        }
+
+        public Writer Login(Writer writer)
+        {
+            return _writerDal.Get(x => x.Mail == writer.Mail && x.Password == writer.Password);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace DataAccesLayer.EnitiyFramework
 {
     public class EfBlogRepository : GenericRepository<Blog>, IBlogDal
     {
-        Context data = new Context();
+        Context dataset = new Context();
         public ICollection<Blog> GetListIncludeCategory()
         {
-            return data.Blogs.Include(x => x.Category).Include(x => x.Writer).ToList(); //Ben burayi sonradan editleyip writer tablosunu da include ettim
+            return dataset.Blogs.Include(x => x.Category).Include(x => x.Writer).ToList(); //Ben burayi sonradan editleyip writer tablosunu da include ettim
         }
     }
 }
